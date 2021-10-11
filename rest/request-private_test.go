@@ -254,7 +254,7 @@ func TestCancelByID(t *testing.T) {
 	c := rest.New(auth.New(os.Getenv("FTXKEY"), os.Getenv("FTXSECRET")))
 
 	res, err := c.CancelByID(&orders.RequestForCancelByID{
-		OrderID: "erafa",
+		OrderID: 1,
 		// prioritize clientID
 		ClientID: "",
 	})
