@@ -5,6 +5,7 @@ import (
 	"github.com/sanychtasher/go-ftx/rest/private/fills"
 	"github.com/sanychtasher/go-ftx/rest/private/funding"
 	"github.com/sanychtasher/go-ftx/rest/private/orders"
+	"github.com/sanychtasher/go-ftx/rest/private/quotes"
 	"github.com/sanychtasher/go-ftx/rest/private/spotmargin"
 	"github.com/sanychtasher/go-ftx/rest/private/subaccount"
 	"github.com/sanychtasher/go-ftx/rest/private/wallet"
@@ -306,6 +307,22 @@ func (p *Client) BalanceSubAccount(req *subaccount.RequestForBalanceSubAccount) 
 
 func (p *Client) TransferSubAccount(req *subaccount.RequestForTransferSubAccount) (*subaccount.ResponseForTransferSubAccount, error) {
 	results := new(subaccount.ResponseForTransferSubAccount)
+	if err := p.request(req, results); err != nil {
+		return nil, err
+	}
+	return results, nil
+}
+
+func (p *Client) CreateQuotes(req *quotes.RequestForQuote) (*quotes.ResponseForQuote, error) {
+	results := new(quotes.ResponseForQuote)
+	if err := p.request(req, results); err != nil {
+		return nil, err
+	}
+	return results, nil
+}
+
+func (p *Client) AcceptQuotes(req *quotes.RequestForAcceptQuote) (*quotes.ResponseForAcceptQuote, error) {
+	results := new(quotes.ResponseForAcceptQuote)
 	if err := p.request(req, results); err != nil {
 		return nil, err
 	}
