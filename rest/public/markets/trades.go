@@ -5,7 +5,7 @@ import (
 	"net/http"
 	"time"
 
-	"github.com/go-numb/go-ftx/types"
+	"github.com/sanychtasher/go-ftx/types"
 	"github.com/google/go-querystring/query"
 )
 

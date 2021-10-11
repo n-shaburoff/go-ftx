@@ -8,9 +8,9 @@ import (
 	"time"
 
 	"github.com/dustin/go-humanize"
-	"github.com/go-numb/go-ftx/rest"
-	"github.com/go-numb/go-ftx/rest/public/futures"
-	"github.com/go-numb/go-ftx/rest/public/markets"
+	"github.com/sanychtasher/go-ftx/rest"
+	"github.com/sanychtasher/go-ftx/rest/public/futures"
+	"github.com/sanychtasher/go-ftx/rest/public/markets"
 	"github.com/stretchr/testify/assert"
 )
 
