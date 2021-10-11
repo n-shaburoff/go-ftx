@@ -5,13 +5,13 @@ import (
 )
 
 type RequestForWithdraw struct {
-	Coin    string  `url:"coin"`
-	Size    float64 `url:"size"`
-	Address string  `url:"address"`
+	Coin    string  `json:"coin"`
+	Size    float64 `json:"size"`
+	Address string  `json:"address"`
 	// Optionals
-	Tag      string `url:"tag,omitempty"`
-	Password string `url:"password,omitempty"`
-	Code     int    `url:"code,omitempty"`
+	Tag      string `json:"tag,omitempty"`
+	Password string `json:"password,omitempty"`
+	Code     int    `json:"code,omitempty"`
 }
 
 type ResponseForWithdraw Withdraw

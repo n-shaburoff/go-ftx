@@ -18,11 +18,14 @@ type Withdraw struct {
 	Txid    string `json:"txid"`
 
 	Fee  float64 `json:"fee"`
-	Size float64 `json:"size,string"`
+	Size float64 `json:"size"`
 
 	Time time.Time `json:"time"`
 
 	ID int `json:"id"`
+
+	Method string `json:"method"`
+	Notes  string `json:"notes"`
 }
 
 func (req *RequestForWithdrawHistories) Path() string {
