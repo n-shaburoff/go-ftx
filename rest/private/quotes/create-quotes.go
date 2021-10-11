@@ -8,29 +8,29 @@ import (
 
 var json = jsoniter.ConfigCompatibleWithStandardLibrary
 
-type RequestForQuote struct {
+type RequestForCreateQuote struct {
 	FromCoin string  `json:"fromCoin"`
 	ToCoin   string  `json:"toCoin"`
 	Size     float64 `json:"size"`
 }
 
-type ResponseForQuote struct {
+type ResponseForCreateQuote struct {
 	QuoteId int `json:"quoteId"`
 }
 
-func (req *RequestForQuote) Path() string {
+func (req *RequestForCreateQuote) Path() string {
 	return "/otc/quotes"
 }
 
-func (req *RequestForQuote) Method() string {
+func (req *RequestForCreateQuote) Method() string {
 	return http.MethodPost
 }
 
-func (req *RequestForQuote) Query() string {
+func (req *RequestForCreateQuote) Query() string {
 	return ""
 }
 
-func (req *RequestForQuote) Payload() []byte {
+func (req *RequestForCreateQuote) Payload() []byte {
 	b, err := json.Marshal(req)
 	if err != nil {
 		return nil

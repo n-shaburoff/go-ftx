@@ -313,8 +313,8 @@ func (p *Client) TransferSubAccount(req *subaccount.RequestForTransferSubAccount
 	return results, nil
 }
 
-func (p *Client) CreateQuotes(req *quotes.RequestForQuote) (*quotes.ResponseForQuote, error) {
-	results := new(quotes.ResponseForQuote)
+func (p *Client) CreateQuotes(req *quotes.RequestForCreateQuote) (*quotes.ResponseForCreateQuote, error) {
+	results := new(quotes.ResponseForCreateQuote)
 	if err := p.request(req, results); err != nil {
 		return nil, err
 	}
@@ -323,6 +323,14 @@ func (p *Client) CreateQuotes(req *quotes.RequestForQuote) (*quotes.ResponseForQ
 
 func (p *Client) AcceptQuotes(req *quotes.RequestForAcceptQuote) (*quotes.ResponseForAcceptQuote, error) {
 	results := new(quotes.ResponseForAcceptQuote)
+	if err := p.request(req, results); err != nil {
+		return nil, err
+	}
+	return results, nil
+}
+
+func (p *Client) QuotesStatus(req *quotes.RequestForQuoteStatus) (*quotes.ResponseForQuoteStatus, error) {
+	results := new(quotes.ResponseForQuoteStatus)
 	if err := p.request(req, results); err != nil {
 		return nil, err
 	}
