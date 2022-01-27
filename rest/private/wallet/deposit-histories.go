@@ -15,7 +15,7 @@ type History struct {
 	Status string `json:"status"`
 	Txid   string `json:"txid"`
 
-	Size float64 `json:"size,string"`
+	Size string `json:"size"`
 	Fee  float64 `json:"fee"`
 
 	Confirmations int `json:"confirmations"`
