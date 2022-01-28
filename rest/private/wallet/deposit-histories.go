@@ -3,6 +3,8 @@ package wallet
 import (
 	"net/http"
 	"time"
+	
+	"github.com/google/go-querystring/query"
 )
 
 type RequestForDepositHistories struct {
