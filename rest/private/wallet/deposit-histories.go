@@ -6,6 +6,8 @@ import (
 )
 
 type RequestForDepositHistories struct {
+	Start       int64  `url:"start_time,omitempty"`
+	End         int64  `url:"end_time,omitempty"`
 }
 
 type ResponseForDepositHistories []History
@@ -35,7 +37,8 @@ func (req *RequestForDepositHistories) Method() string {
 }
 
 func (req *RequestForDepositHistories) Query() string {
-	return ""
+	value, _ := query.Values(req)
+	return value.Encode()
 }
 
 func (req *RequestForDepositHistories) Payload() []byte {
