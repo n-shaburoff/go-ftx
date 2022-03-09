@@ -3,12 +3,10 @@ package rest
 import (
 	"time"
 
-	"github.com/sanychtasher/go-ftx/auth"
 	jsoniter "github.com/json-iterator/go"
+	"github.com/sanychtasher/go-ftx/auth"
 	"github.com/valyala/fasthttp"
 )
-
-const ENDPOINT = "https://ftx.com/api"
 
 var json = jsoniter.ConfigCompatibleWithStandardLibrary
 

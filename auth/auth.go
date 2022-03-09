@@ -13,6 +13,8 @@ type Config struct {
 	Key    string
 	Secret string
 
+	Enpoint string
+
 	// SubAccountID use Account as needed when rewrite ID
 	SubAccountID int
 	subAccounts  map[int]SubAccount
@@ -37,10 +39,11 @@ func (p *Config) SubAccount() SubAccount {
 	return p.subAccounts[p.SubAccountID]
 }
 
-func New(key, secret string, subaccounts ...SubAccount) *Config {
+func New(key, secret, endpoint string, subaccounts ...SubAccount) *Config {
 	config := &Config{
 		Key:          key,
 		Secret:       secret,
+		Enpoint:      endpoint,
 		SubAccountID: 0,
 	}
 

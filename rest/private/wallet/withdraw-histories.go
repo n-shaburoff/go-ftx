@@ -3,9 +3,13 @@ package wallet
 import (
 	"net/http"
 	"time"
+
+	"github.com/google/go-querystring/query"
 )
 
 type RequestForWithdrawHistories struct {
+	Start int64 `url:"start_time,omitempty"`
+	End   int64 `url:"end_time,omitempty"`
 }
 
 type ResponseForWithdrawHistories []Withdraw
@@ -37,7 +41,8 @@ func (req *RequestForWithdrawHistories) Method() string {
 }
 
 func (req *RequestForWithdrawHistories) Query() string {
-	return ""
+	value, _ := query.Values(req)
+	return value.Encode()
 }
 
 func (req *RequestForWithdrawHistories) Payload() []byte {
