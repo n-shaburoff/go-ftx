@@ -13,7 +13,7 @@ type Config struct {
 	Key    string
 	Secret string
 
-	Enpoint string
+	Endpoint string
 
 	// SubAccountID use Account as needed when rewrite ID
 	SubAccountID int
@@ -43,7 +43,7 @@ func New(key, secret, endpoint string, subaccounts ...SubAccount) *Config {
 	config := &Config{
 		Key:          key,
 		Secret:       secret,
-		Enpoint:      endpoint,
+		Endpoint:      endpoint,
 		SubAccountID: 0,
 	}
 
