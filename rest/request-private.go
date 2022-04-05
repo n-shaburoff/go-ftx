@@ -91,6 +91,14 @@ func (p *Client) Withdraw(req *wallet.RequestForWithdraw) (*wallet.ResponseForWi
 	return results, nil
 }
 
+func (p *Client) GetWithdrawalFees(req *wallet.RequestForWithdrawalFees) (*wallet.ResponseForWithdrawalFees, error) {
+	results := new(wallet.ResponseForWithdrawalFees)
+	if err := p.request(req, results); err != nil {
+		return nil, err
+	}
+	return results, nil
+}
+
 func (p *Client) OpenOrder(req *orders.RequestForOpenOrder) (*orders.ResponseForOpenOrder, error) {
 	results := new(orders.ResponseForOpenOrder)
 	if err := p.request(req, results); err != nil {
