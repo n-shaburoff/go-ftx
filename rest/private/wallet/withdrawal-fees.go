@@ -1,14 +1,17 @@
 package wallet
 
-import "net/http"
+import (
+	"github.com/google/go-querystring/query"
+	"net/http"
+)
 
 type RequestForWithdrawalFees struct {
-	Coin    string  `json:"coin"`
-	Size    float64 `json:"size"`
-	Address string  `json:"address"`
+	Coin    string  `url:"coin"`
+	Size    float64 `url:"size"`
+	Address string  `url:"address"`
 	// Optionals
-	Tag     string `json:"tag,omitempty"`
-	Network string `json:"method,omitempty"`
+	Tag     string `url:"tag,omitempty"`
+	Network string `url:"method,omitempty"`
 }
 
 type ResponseForWithdrawalFees struct {
@@ -23,17 +26,14 @@ func (req *RequestForWithdrawalFees) Path() string {
 }
 
 func (req *RequestForWithdrawalFees) Method() string {
-	return http.MethodPost
+	return http.MethodGet
 }
 
 func (req *RequestForWithdrawalFees) Query() string {
-	return ""
+	value, _ := query.Values(req)
+	return value.Encode()
 }
 
 func (req *RequestForWithdrawalFees) Payload() []byte {
-	b, err := json.Marshal(req)
-	if err != nil {
-		return nil
-	}
-	return b
+	return nil
 }
