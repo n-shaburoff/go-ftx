@@ -23,7 +23,7 @@ func (req *RequestForWithdrawalFees) Path() string {
 }
 
 func (req *RequestForWithdrawalFees) Method() string {
-	return http.MethodPost
+	return http.MethodGet
 }
 
 func (req *RequestForWithdrawalFees) Query() string {
