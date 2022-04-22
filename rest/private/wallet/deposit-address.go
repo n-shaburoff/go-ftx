@@ -2,11 +2,13 @@ package wallet
 
 import (
 	"fmt"
+	"github.com/google/go-querystring/query"
 	"net/http"
 )
 
 type RequestForDepositAddress struct {
-	Coin string `json:"-"`
+	Coin    string `json:"-"`
+	Network string `url:"method,omitempty"`
 }
 
 type ResponseForDepositAddress struct {
@@ -23,7 +25,8 @@ func (req *RequestForDepositAddress) Method() string {
 }
 
 func (req *RequestForDepositAddress) Query() string {
-	return ""
+	value, _ := query.Values(req)
+	return value.Encode()
 }
 
 func (req *RequestForDepositAddress) Payload() []byte {
